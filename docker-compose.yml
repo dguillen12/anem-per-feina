@@ -10,7 +10,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  app:
+  backend:
     build:
       context: .
     image: anemperfeina:1.0
@@ -30,6 +30,16 @@ services:
       - migrate
       - runserver
       - --debug
+
+  frontoffice:
+    build: ./frontoffice/
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontoffice/:/frontoffice/
+      - /frontoffice/node_modules
 
 volumes:
   postgres_data:
