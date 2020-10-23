@@ -14,12 +14,6 @@ GENDER_CHOICES = (("male", "Male"), ("female", "Female"))
 
 class User(AbstractUser):
     username = models.CharField(max_length=64, default=None)
-    role = models.CharField(
-        max_length=12,
-        error_messages={"required": "Role must be provided"},
-        verbose_name=_("Role"),
-        help_text=_("User role."),
-    )
     gender = models.CharField(
         max_length=10,
         blank=True,
