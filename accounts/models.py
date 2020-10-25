@@ -13,7 +13,7 @@ GENDER_CHOICES = (("male", "Male"), ("female", "Female"))
 
 
 class User(AbstractUser):
-    username = models.CharField(max_length=64, default=None)
+    username = None
     gender = models.CharField(
         max_length=10,
         blank=True,
