@@ -34,3 +34,6 @@ purge: confirm ## Purge all containers and volumes
 
 build: ## (re)Build all images or c=<name> containers
 	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) build $(c)
+
+migrations: ## Makemigrations django app
+	@$(DOCKER_COMPOSE) -f $(DOCKER_COMPOSE_FILE) exec app python manage.py makemigrations
