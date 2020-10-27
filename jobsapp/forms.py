@@ -30,4 +30,3 @@ class CreateJobForm(forms.ModelForm):
         if commit:
             job.save()
         return job
-
