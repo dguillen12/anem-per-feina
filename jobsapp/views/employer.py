@@ -24,6 +24,7 @@ class DashboardView(ListView):
     def get_queryset(self):
         return self.model.objects.filter(user_id=self.request.user.id)
 
+
 class JobCreateView(CreateView):
     template_name = "jobs/create.html"
     form_class = CreateJobForm
@@ -53,6 +54,7 @@ class JobDeleteView(DeleteView):
     model = Job
     success_url = reverse_lazy("jobs:employer-dashboard")
     template_name = "jobs/delete.html"
+
 
 @login_required(login_url=reverse_lazy("accounts:login"))
 def filled(request, job_id=None):
